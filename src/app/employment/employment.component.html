@@ -1,0 +1,20 @@
+<table class="table employment">
+  <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>position</th>
+      <th>Address</th>
+     
+  </tr>
+  <tr *ngFor="let employment of employments" (click)="onSelect(employment)">
+    <td>{{employment.first_name}}</td>
+    <td>{{employment.last_name}}</td>
+    <td>{{employment.email}}</td>
+    <td>{{employment.phone}}</td>
+    <td>{{employment.position}}</td>
+    <td>{{employment.street1}} {{employment.street2}}, {{employment.city}}, <br>{{employment.state}}, {{employment.zipcode}}, {{employment.country}}</td>
+      
+  </tr>
+</table>
