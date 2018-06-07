@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmploymentService } from '../services/employment.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router ,ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-employmentdetail',
   templateUrl: './employmentdetail.component.html',
@@ -8,26 +9,57 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EmploymentdetailComponent implements OnInit {
   public employee;
+  public comments;
   id: string;
+  employee_id: number;
   
-  constructor(private route: ActivatedRoute,private employmentservice: EmploymentService) { }
+  constructor(private route: ActivatedRoute,private employmentservice: EmploymentService,private router: Router) {
+    if(! this.employee){this.employee={}}
+   }
+
+  submitComment(value: any){
+    value.user_id=sessionStorage.getItem('id');
+    this.employmentservice.postComment(value,this.id).subscribe(
+      data => { this.comments = data['data'];
+      
+      console.log(this.comments);},
+      err => console.error(err),
+      () => console.log('done loading comments')
+    );
+    
+    return false;
+  }
 
   getEmployeeDetail(id): void {
     
     this.employmentservice.getDetail(id).subscribe(
-      data => { this.employee = data['data'];},
+      data => { 
+        this.employee = data['data'];
+        
+      },
       err => console.error(err),
       () => console.log('done loading employments')
     );
   }
 
+  getComments(id):void{
+    this.employmentservice.getcomments(id).subscribe(
+      data => { this.comments = data['data'];console.log(this.comments);},
+      err => console.error(err),
+      () => console.log('done loading comments')
+    );
+  }
+
   ngOnInit() {
+    if ((sessionStorage.getItem('email') === null) ) {
+      this.router.navigate(['/login']);
+      }
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
     });
     
     this.getEmployeeDetail(this.id);
-    
+    this.getComments(this.id);
   }
 
 }

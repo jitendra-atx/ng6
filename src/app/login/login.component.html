@@ -1,20 +1,49 @@
-<form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
-  
-  <div class="control-group">
-    <label class="control-label">User Email</label>
-    <div class="controls">
-      <input type="text" name="email" id="email" value="" ngModel>
+
+<div class="container">
+  <div class="row main">
+    
+    <div class="main-login main-center">
+       <div class="panel-heading">
+        <div class="panel-title text-center">
+            <h2 class="title">Login</h2>
+        </div>
+      </div> 
+
+      <div *ngIf="status; else register" class="alert alert-success">
+          {{message}}
+      </div>
+      <ng-template #register>
+      <form  class="form-horizontal"  #form="ngForm" method="post" (ngSubmit)="onSubmit(form.value)">
+        <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label">Email</label>
+          <div class="cols-sm-10">
+            <div class="{{(error && error.email)?'input-group  has-error':'input-group'}}">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" name="email" id="email"  placeholder="Enter Email address"  value="" ngModel>
+              <span *ngIf="error && error.email" class="help-block">{{error.email}}</span>
+            </div>
+            
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="password" class="cols-sm-2 control-label">Password</label>
+          <div class="cols-sm-10">
+            <div class="{{(error && error.password)?'input-group  has-error':'input-group'}}">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password" value="" ngModel>
+              <span *ngIf="error && error.password" class="help-block">{{error.password}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group ">
+          <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+        </div>
+        <div class="login-register"><a routerLink="/registration" routerLinkActive="active">Registration</a></div>
+      </form>
+    </ng-template>
     </div>
   </div>
-
-  <div class="control-group">
-    <label class="control-label">Password</label>
-    <div class="controls">
-      <input type="password" name="password" id="password" ngModel>
-      
-    </div>
-  </div>
-  
-
-  <input type="submit" value="Login">
-</form>
+</div>

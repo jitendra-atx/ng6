@@ -7,7 +7,7 @@ import { EmploymentComponent } from './employment/employment.component';
 import { EmploymentdetailComponent } from './employmentdetail/employmentdetail.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', component: EmploymentComponent},
+  {path: '', pathMatch: 'full', component: LoginComponent},
   {path: 'heroes', component: HeroesComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: EmploymentComponent},

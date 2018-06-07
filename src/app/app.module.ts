@@ -12,6 +12,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { EmploymentComponent } from './employment/employment.component';
 import { EmploymentdetailComponent } from './employmentdetail/employmentdetail.component';
+import { SESSION_STORAGE,StorageServiceModule } from 'ngx-webstorage-service';
+import { SERVICE_STORAGE, MyStorageService } from './services/localstorage.service';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -24,15 +27,18 @@ import { EmploymentdetailComponent } from './employmentdetail/employmentdetail.c
     RegistrationComponent,
     LoginComponent,
     EmploymentComponent,
-    EmploymentdetailComponent
+    EmploymentdetailComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StorageServiceModule,
   ],
-  providers: [],
+  providers: [{ provide: SERVICE_STORAGE, useExisting: SESSION_STORAGE },
+    MyStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

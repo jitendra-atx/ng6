@@ -25,4 +25,14 @@ export class EmploymentService {
     this.url='getemployee';
     return this.httpService.getDetailData(this.url,id);
   }
+
+  postComment(data,id){
+    this.url='employmentcomment';
+    return this.httpService.postComment(this.url,data,id);
+  }
+
+  getcomments(id){
+    this.url='comments';
+    return this.httpService.getComments(this.url,id);
+  }
 }

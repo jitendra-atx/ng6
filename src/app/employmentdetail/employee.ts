@@ -1,0 +1,21 @@
+export class Employee {
+    id: number;
+    title: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    phone: string;
+    cell_number: string;
+    best_time_to_call: string;
+    street1: string;
+    street2: string;
+    city: string;
+    state: string;
+    zipcode: string;
+    country: string;
+    position: string;
+    days_available: string;
+    license: string;
+    need_call: string;
+    resume: string;
+  };

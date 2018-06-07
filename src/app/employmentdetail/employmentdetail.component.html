@@ -1,2 +1,55 @@
+<div id="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+           <div class="col-md-6">
+               <div class="col-md-12"><h2>ATX Learning Employment Application</h2></div>
+               <div class="col-md-12">
+                    <div class="table-responsive">
+                            <table class="table">
+                                <tr><th>Title:</th><td>{{employee.title}}</td></tr>
+                                <tr><th>Name:</th><td>{{employee.first_name}} {{employee.last_name}}</td></tr>
+                                <tr><th>Email Address:</th><td>{{employee.email}}</td></tr>
+                                <tr><th>Home number</th><td>{{employee.phone}}</td></tr>
+                                <tr><th>Cell number:</th><td>{{employee.cell_number	}}</td></tr>
+                                <tr><th>Best time to call:</th><td>{{employee.best_time_to_call}}</td></tr>
+                                <tr><th>Address:</th><td>Street Address:{{employee.street1}} {{employee.street2}} <br>City: {{employee.city}}<br>State: {{employee.state}} <br> Zip Code: {{employee.zipcode}}</td></tr>
+                                <tr><th>Applying for Position:</th><td>{{employee.position}}</td></tr>
+                                <tr><th>Days Available:</th><td>{{employee.days_available}}</td></tr>
+                                <tr><th>Licenses, Skills, Training, Awards:</th><td>{{employee.license}}</td></tr>
+                                <tr><th>Need a call back?</th><td>{{employee.need_call}}</td></tr>
+                            </table>
+                    </div>
+                 </div>   
+           </div>
+           <div class="col-md-6">
 
-{{employee.title}}
+            <div class="content-discussion">
+                <ul class="comment-list">
+                 <li *ngFor="let comment of comments">
+                   {{comment.comment}} By {{comment.name}} @ {{comment.created_at | date:'medium'}}
+                 </li>
+                </ul>
+            </div>
+
+            <div class="comment-form">
+                <form #form="ngForm" (ngSubmit)="submitComment(form.value)">
+                    <div class="control-group">
+                        <label class="control-label">Comment</label>
+                        <div class="controls">
+                            <textarea name="comment" cols="100" rows="5" comment="required"  required ngModel="comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="submit" value="save">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+           </div>
+        </div>
+        </div>
+    </div>
+</div>
