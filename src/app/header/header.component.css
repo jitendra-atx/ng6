@@ -1,9 +1,11 @@
-.angular-logo {
-    margin: 0 4px 3px 0;
-    height: 35px;
-    vertical-align: middle;
-}
-.fill-remaining-space {
-  flex: 1 1 auto;
-}
+.angular-logo {margin: 0 4px 3px 0;height: 35px;vertical-align: middle;}
+.fill-remaining-space {flex: 1 1 auto;}
 header{background: skyblue;}
+.navbar-inverse {background-color:#48d8dd;border-color: #48d8dd;}
+
+.navbar{padding:0px;border-radius: 0px;}
+.navbar-brand{padding:15px;}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{color:#fff;background-color: transparent;}
+.navbar > .container, .navbar > .container-fluid{display: block;}
+.navbar-nav{flex-direction: inherit;}
+.navbar-inverse .navbar-nav>li>a{color: #fff;font-size: 18px;font-weight: bold;}

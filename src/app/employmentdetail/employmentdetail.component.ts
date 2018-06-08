@@ -17,16 +17,17 @@ export class EmploymentdetailComponent implements OnInit {
     if(! this.employee){this.employee={}}
    }
 
-  submitComment(value: any){
-    value.user_id=sessionStorage.getItem('id');
-    this.employmentservice.postComment(value,this.id).subscribe(
+  submitComment(form: any){
+    
+    form.value.user_id=sessionStorage.getItem('id');
+    this.employmentservice.postComment(form.value,this.id).subscribe(
       data => { this.comments = data['data'];
       
       console.log(this.comments);},
       err => console.error(err),
       () => console.log('done loading comments')
     );
-    
+    form.resetForm();
     return false;
   }
 

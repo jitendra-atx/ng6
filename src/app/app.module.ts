@@ -15,6 +15,9 @@ import { EmploymentdetailComponent } from './employmentdetail/employmentdetail.c
 import { SESSION_STORAGE,StorageServiceModule } from 'ngx-webstorage-service';
 import { SERVICE_STORAGE, MyStorageService } from './services/localstorage.service';
 import { HeaderComponent } from './header/header.component';
+import { LogoutComponent } from './logout/logout.component';
+import { DataTablesModule } from 'angular-datatables';
+import {NgxAutoScrollModule} from "ngx-auto-scroll";
 
 
 @NgModule({
@@ -28,7 +31,8 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     EmploymentComponent,
     EmploymentdetailComponent,
-    HeaderComponent
+    HeaderComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,8 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     HttpClientModule,
     StorageServiceModule,
+    DataTablesModule,
+    NgxAutoScrollModule
   ],
   providers: [{ provide: SERVICE_STORAGE, useExisting: SESSION_STORAGE },
     MyStorageService],

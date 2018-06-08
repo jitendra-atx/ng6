@@ -1,13 +1,13 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">WebSiteName</a>
+        <a class="navbar-brand" href="/">ATX Learning</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li>
+        <li class=""><a ng-href="/" href="/">Home</a></li>
+        <li *ngIf="email === null" class=""><a ng-href="/login" href="/login">Login</a></li>
+        <li *ngIf="email === null" class=""><a ng-href="/registration" href="/registration">Register</a></li>
+        <li *ngIf="email !== null" class=""><a ng-href="/logout" href="/logout">Logout</a></li>
       </ul>
     </div>
   </nav>

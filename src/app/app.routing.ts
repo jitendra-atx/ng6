@@ -5,11 +5,13 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { EmploymentComponent } from './employment/employment.component';
 import { EmploymentdetailComponent } from './employmentdetail/employmentdetail.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: LoginComponent},
   {path: 'heroes', component: HeroesComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: 'dashboard', component: EmploymentComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'employee/:id', component: EmploymentdetailComponent}

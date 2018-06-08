@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  private email:string;
   constructor() { }
 
   ngOnInit() {
+    this.email=sessionStorage.getItem('email');
   }
 
 }
