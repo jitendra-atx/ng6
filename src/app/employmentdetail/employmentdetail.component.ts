@@ -10,6 +10,8 @@ import { Router ,ActivatedRoute } from '@angular/router';
 export class EmploymentdetailComponent implements OnInit {
   public employee;
   public comments;
+
+
   id: string;
   employee_id: number;
   

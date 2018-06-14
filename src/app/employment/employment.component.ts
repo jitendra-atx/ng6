@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmploymentService } from '../services/employment.service';
-import { SESSION_STORAGE,StorageServiceModule } from 'ngx-webstorage-service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-employement',
@@ -10,14 +10,13 @@ import { SESSION_STORAGE,StorageServiceModule } from 'ngx-webstorage-service';
 })
 export class EmploymentComponent implements OnInit {
   public employments;
-  
+  filterform: FormGroup;
   
   constructor( private employmentservice: EmploymentService ,private router: Router) { }
   getEmploymentList(): void {
     this.employmentservice.getList().subscribe(
       data => { 
         this.employments = data['data'];
-        
       },
       err => console.error(err),
       () => console.log('done loading employments')
@@ -25,6 +24,12 @@ export class EmploymentComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*filterform = new FormGroup({
+      position: new FormControl(),
+      state: new FormControl(),
+      city: new FormControl()
+    });
+*/
    if ((sessionStorage.getItem('email') === null) ) {
     this.router.navigate(['/login']);
     } else{

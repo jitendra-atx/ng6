@@ -1,3 +1,22 @@
+<div class="employee-form container">
+  <form #employeefilter="ngForm" (ngSubmit)="submitFilter(employeefilter)">
+      <div class="form-row">
+          <div class="col-md-4">
+              <input type="text" class="form-control" placeholder="position" name="position">
+          </div>
+          <div class="col-md-4">
+              <input type="text" class="form-control" placeholder="State" name="state">
+          </div>
+          <div class="col-md-3">
+              <input type="text" class="form-control" placeholder="City" name="city">
+          </div>
+          <div class="col-md-1">
+              <input type="submit" class="btn btn-primary" name="submit" value="Filter">
+          </div>
+      </div>
+  </form>
+</div>
+
 <table class="table employment">
   <tr>
       <th>First Name</th>

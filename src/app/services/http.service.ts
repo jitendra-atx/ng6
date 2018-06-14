@@ -32,7 +32,7 @@ export class HttpService {
   {
     
     this.restUrl=this.apiUrl+url+'/'+id;
-    console.log(data);
+    
     return this.http.post(this.restUrl,data,httpOptions);
   }
 
